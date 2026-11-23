@@ -1,0 +1,22 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: SERVICE-VOITURE
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: SERVICE-VOITURE
+        health-check-path: /actuator/health
+  datasource:
+    url: jdbc:h2:mem:microvoituredb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
